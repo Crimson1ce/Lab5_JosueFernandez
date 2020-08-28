@@ -22,6 +22,8 @@ public class Corona extends javax.swing.JFrame {
     public Corona() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        bt_modificarPersona.setVisible(false);
     }
 
     /**
@@ -65,6 +67,7 @@ public class Corona extends javax.swing.JFrame {
         rb_femenino = new javax.swing.JRadioButton();
         cb_titulo = new javax.swing.JCheckBox();
         cb_infectado = new javax.swing.JCheckBox();
+        bt_modificarPersona = new javax.swing.JButton();
         jd_agregar = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         cb_personas = new javax.swing.JComboBox<>();
@@ -75,6 +78,14 @@ public class Corona extends javax.swing.JFrame {
         cb_paises = new javax.swing.JComboBox<>();
         bt_agregar = new javax.swing.JButton();
         bg_sexo = new javax.swing.ButtonGroup();
+        pm_pais = new javax.swing.JPopupMenu();
+        jmi_eliminarpais = new javax.swing.JMenuItem();
+        jmi_modificarpais = new javax.swing.JMenuItem();
+        jmi_agregarPersona = new javax.swing.JMenuItem();
+        pm_persona = new javax.swing.JPopupMenu();
+        jmi_eliminarpersona = new javax.swing.JMenuItem();
+        jmi_modificarpersona = new javax.swing.JMenuItem();
+        jmi_expulsar = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_paises = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -247,6 +258,16 @@ public class Corona extends javax.swing.JFrame {
         cb_infectado.setBackground(new java.awt.Color(255, 204, 0));
         cb_infectado.setText("Está infectado de Coronavirus");
 
+        bt_modificarPersona.setBackground(new java.awt.Color(51, 51, 255));
+        bt_modificarPersona.setText("Modificar Persona");
+        bt_modificarPersona.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bt_modificarPersona.setBorderPainted(false);
+        bt_modificarPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_modificarPersonaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -289,7 +310,9 @@ public class Corona extends javax.swing.JFrame {
                                         .addComponent(tf_vocacion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(116, 116, 116)
-                        .addComponent(bt_crearPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bt_modificarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bt_crearPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -322,7 +345,9 @@ public class Corona extends javax.swing.JFrame {
                     .addComponent(cb_infectado))
                 .addGap(18, 18, 18)
                 .addComponent(bt_crearPersona)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bt_modificarPersona)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jd_crearPersona.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
@@ -419,6 +444,44 @@ public class Corona extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jmi_eliminarpais.setText("Eliminar pais");
+        jmi_eliminarpais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarpaisActionPerformed(evt);
+            }
+        });
+        pm_pais.add(jmi_eliminarpais);
+
+        jmi_modificarpais.setText("Modificar pais");
+        pm_pais.add(jmi_modificarpais);
+
+        jmi_agregarPersona.setText("Agregar persona");
+        jmi_agregarPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_agregarPersonaActionPerformed(evt);
+            }
+        });
+        pm_pais.add(jmi_agregarPersona);
+
+        jmi_eliminarpersona.setText("Eliminar persona");
+        jmi_eliminarpersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarpersonaActionPerformed(evt);
+            }
+        });
+        pm_persona.add(jmi_eliminarpersona);
+
+        jmi_modificarpersona.setText("Modificar persona");
+        jmi_modificarpersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarpersonaActionPerformed(evt);
+            }
+        });
+        pm_persona.add(jmi_modificarpersona);
+
+        jmi_expulsar.setText("Expulsar del país");
+        pm_persona.add(jmi_expulsar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Países");
@@ -508,7 +571,25 @@ public class Corona extends javax.swing.JFrame {
     }//GEN-LAST:event_jmi_cPersonaActionPerformed
 
     private void jt_paisesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_paisesMouseClicked
-        // TODO add your handling code here:
+        
+        if(evt.isMetaDown()){
+            
+            int row = jt_paises.getClosestRowForLocation(evt.getX(), evt.getY());
+            jt_paises.setSelectionRow(row);
+            
+            Object node = jt_paises.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) node;
+            
+            if(nodo_seleccionado.getUserObject() instanceof Pais){
+                pais_seleccionado = (Pais) nodo_seleccionado.getUserObject();
+                
+                pm_pais.show(evt.getComponent(), evt.getX(), evt.getY());
+            } else if(nodo_seleccionado.getUserObject() instanceof Persona){
+                persona_seleccionada = (Persona) nodo_seleccionado.getUserObject();
+                
+                pm_persona.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
     }//GEN-LAST:event_jt_paisesMouseClicked
 
     private void bt_crearPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crearPaisActionPerformed
@@ -711,6 +792,100 @@ public class Corona extends javax.swing.JFrame {
         
     }//GEN-LAST:event_bt_agregarActionPerformed
 
+    private void jmi_eliminarpaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarpaisActionPerformed
+        
+        int r = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar este país?", "Eliminar país", JOptionPane.YES_NO_OPTION);
+        if(r==0){
+            DefaultTreeModel m = (DefaultTreeModel) jt_paises.getModel();
+            m.removeNodeFromParent(nodo_seleccionado);
+            m.reload();
+        }
+        
+        
+    }//GEN-LAST:event_jmi_eliminarpaisActionPerformed
+
+    private void jmi_eliminarpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarpersonaActionPerformed
+        
+        int r = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar esta persona?", "Eliminar persona", JOptionPane.YES_NO_OPTION);
+        if(r==0){
+            DefaultTreeModel m = (DefaultTreeModel) jt_paises.getModel();
+            m.removeNodeFromParent(nodo_seleccionado);
+            m.reload();
+        }
+        
+    }//GEN-LAST:event_jmi_eliminarpersonaActionPerformed
+
+    private void jmi_agregarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarPersonaActionPerformed
+        
+    }//GEN-LAST:event_jmi_agregarPersonaActionPerformed
+
+    private void bt_modificarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificarPersonaActionPerformed
+        
+        String nacionalidad;
+        String nombrePersona;
+        String apellido;
+        int edad;
+        String genero;
+        String vocacion;
+        boolean tieneTitulo;
+        boolean infectadoCorona;
+        
+        try {
+            
+            
+            
+            nacionalidad = tf_nacionalidad.getText();
+            nombrePersona = tf_nombrePersona.getText();
+            apellido = tf_apellido.getText();
+            edad = Integer.parseInt(sp_edad.getValue().toString());
+            genero = (rb_masculino.isSelected()) ? "Masculino" : "Femenino" ;
+            vocacion = tf_vocacion.getText();
+            tieneTitulo = cb_titulo.isSelected();
+            infectadoCorona = cb_infectado.isSelected();
+            
+            if(nacionalidad.equals("") 
+                    || nombrePersona.equals("")
+                    || apellido.equals("")
+                    || vocacion.equals("")){
+                
+                throw new Exception("No se ha ingresado uno o más campos.");
+                
+            }
+            
+            persona_seleccionada.setApellido(apellido);
+            persona_seleccionada.setEdad(edad);
+            persona_seleccionada.setGenero(genero);
+            persona_seleccionada.setInfectadoCorona(infectadoCorona);
+            persona_seleccionada.setNacionalidad(nacionalidad);
+            persona_seleccionada.setNombrePersona(nombrePersona);
+            persona_seleccionada.setTieneTitulo(tieneTitulo);
+            persona_seleccionada.setVocacion(vocacion);
+            
+            tf_nacionalidad.setText("");
+            tf_nombrePersona.setText("");
+            tf_apellido.setText("");
+            sp_edad.setValue(20);
+            rb_masculino.setSelected(true);
+            tf_vocacion.setText("");
+            cb_titulo.setSelected(false);
+            cb_infectado.setSelected(false);
+            
+            DefaultTreeModel m = (DefaultTreeModel) jt_paises.getModel();
+            m.reload();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al crear una persona.", "Eror", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_bt_modificarPersonaActionPerformed
+
+    private void jmi_modificarpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarpersonaActionPerformed
+        bt_crearPersona.setVisible(false);
+        bt_modificarPersona.setVisible(true);
+        crearPersona();
+        
+    }//GEN-LAST:event_jmi_modificarpersonaActionPerformed
+
     private void crearPersona(){
         jd_crearPersona.pack();
         jd_crearPersona.setModal(true);
@@ -793,6 +968,7 @@ public class Corona extends javax.swing.JFrame {
     private javax.swing.JButton bt_crearPais;
     private javax.swing.JButton bt_crearPersona;
     private javax.swing.JButton bt_filtrar;
+    private javax.swing.JButton bt_modificarPersona;
     private javax.swing.JCheckBox cb_infectado;
     private javax.swing.JComboBox<String> cb_paises;
     private javax.swing.JComboBox<String> cb_personas;
@@ -824,10 +1000,18 @@ public class Corona extends javax.swing.JFrame {
     private javax.swing.JMenu jm_admin;
     private javax.swing.JMenu jm_agregar;
     private javax.swing.JMenuItem jmi_add;
+    private javax.swing.JMenuItem jmi_agregarPersona;
     private javax.swing.JMenuItem jmi_cPais;
     private javax.swing.JMenuItem jmi_cPersona;
+    private javax.swing.JMenuItem jmi_eliminarpais;
+    private javax.swing.JMenuItem jmi_eliminarpersona;
+    private javax.swing.JMenuItem jmi_expulsar;
+    private javax.swing.JMenuItem jmi_modificarpais;
+    private javax.swing.JMenuItem jmi_modificarpersona;
     private javax.swing.JTree jt_infectados;
     private javax.swing.JTree jt_paises;
+    private javax.swing.JPopupMenu pm_pais;
+    private javax.swing.JPopupMenu pm_persona;
     private javax.swing.JRadioButton rb_femenino;
     private javax.swing.JRadioButton rb_hombres;
     private javax.swing.JRadioButton rb_masculino;
@@ -840,4 +1024,9 @@ public class Corona extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombrePersona;
     private javax.swing.JTextField tf_vocacion;
     // End of variables declaration//GEN-END:variables
+
+    DefaultMutableTreeNode nodo_seleccionado;
+    Persona persona_seleccionada;
+    Pais pais_seleccionado;
+    
 }
