@@ -1,6 +1,10 @@
 package lab5;
 
+import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Date;
+import javafx.scene.chart.PieChart;
+import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
 
 public class Corona extends javax.swing.JFrame {
@@ -27,26 +31,38 @@ public class Corona extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jd_crearPersona = new javax.swing.JDialog();
+        jd_crearPais = new javax.swing.JDialog();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        bt_crearPais = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        tf_nombrePersona = new javax.swing.JTextField();
+        tf_nombrePais = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        tf_himno = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jdc_fundacion = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
+        bt_colorBandera = new javax.swing.JButton();
+        bg_genero = new javax.swing.ButtonGroup();
+        jd_crearPersona = new javax.swing.JDialog();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        bt_crearPersona = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        tf_nombrePersona = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         tf_apellido = new javax.swing.JTextField();
         tf_nacionalidad = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         sp_edad = new javax.swing.JSpinner();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         tf_vocacion = new javax.swing.JTextField();
         rb_masculino = new javax.swing.JRadioButton();
         rb_femenino = new javax.swing.JRadioButton();
         cb_titulo = new javax.swing.JCheckBox();
         cb_infectado = new javax.swing.JCheckBox();
-        bg_genero = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_paises = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -54,51 +70,154 @@ public class Corona extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jm_admin = new javax.swing.JMenu();
         jm_agregar = new javax.swing.JMenu();
-        jmi_cPersona = new javax.swing.JMenuItem();
         jmi_cPais = new javax.swing.JMenuItem();
+        jmi_cPersona = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
 
-        jd_crearPersona.setTitle("Crear Persona");
-        jd_crearPersona.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jd_crearPais.setTitle("Crear Persona");
+        jd_crearPais.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
 
-        jPanel2.setBackground(new java.awt.Color(51, 0, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 255));
-        jButton1.setText("Crear Persona");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bt_crearPais.setBackground(new java.awt.Color(51, 51, 255));
+        bt_crearPais.setText("Crear País");
+        bt_crearPais.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bt_crearPais.setBorderPainted(false);
+        bt_crearPais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bt_crearPaisActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Nacionalidad:");
-
         jLabel1.setText("Nombre:");
 
-        jLabel3.setText("Apellido:");
+        jLabel6.setText("Himno Nacional:");
 
-        jLabel4.setText("Edad:");
+        jLabel2.setText("Fecha de fundación:");
+
+        jdc_fundacion.setDate(new Date());
+        jdc_fundacion.setDateFormatString("dd / MM / yyyy");
+
+        jLabel3.setText("Color de bandera:");
+
+        bt_colorBandera.setBackground(new java.awt.Color(255, 0, 0));
+        bt_colorBandera.setBorderPainted(false);
+        bt_colorBandera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_colorBanderaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_nombrePais, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tf_himno, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(62, 62, 62)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jdc_fundacion, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(bt_colorBandera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(bt_crearPais, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(tf_nombrePais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)))
+                    .addComponent(jdc_fundacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_himno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(bt_colorBandera, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(bt_crearPais)
+                .addGap(45, 45, 45))
+        );
+
+        jd_crearPais.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 210));
+
+        jd_crearPersona.setTitle("Crear Persona");
+        jd_crearPersona.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(255, 204, 0));
+
+        jPanel4.setBackground(new java.awt.Color(51, 0, 255));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
+        );
+
+        bt_crearPersona.setBackground(new java.awt.Color(51, 51, 255));
+        bt_crearPersona.setText("Crear Persona");
+        bt_crearPersona.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bt_crearPersona.setBorderPainted(false);
+        bt_crearPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_crearPersonaActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Nacionalidad:");
+
+        jLabel8.setText("Nombre:");
+
+        jLabel9.setText("Apellido:");
+
+        jLabel10.setText("Edad:");
 
         sp_edad.setModel(new javax.swing.SpinnerNumberModel(20, 0, 135, 1));
 
-        jLabel5.setText("Género:");
+        jLabel11.setText("Género:");
 
-        jLabel6.setText("Vocación:");
+        jLabel12.setText("Vocación:");
 
         rb_masculino.setBackground(new java.awt.Color(255, 204, 0));
         bg_genero.add(rb_masculino);
@@ -115,85 +234,85 @@ public class Corona extends javax.swing.JFrame {
         cb_infectado.setBackground(new java.awt.Color(255, 204, 0));
         cb_infectado.setText("Está infectado de Coronavirus");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel11))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rb_femenino)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
                                     .addComponent(cb_titulo)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cb_infectado))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                                             .addComponent(tf_nombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jLabel3))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel9))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
                                             .addComponent(tf_nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel4))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(jLabel10))
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
                                             .addComponent(rb_masculino)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel6)))
+                                            .addComponent(jLabel12)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(tf_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(tf_vocacion, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(116, 116, 116)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(bt_crearPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
                     .addComponent(tf_nombrePersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabel9)
                     .addComponent(tf_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
                     .addComponent(tf_nacionalidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
+                    .addComponent(jLabel10)
                     .addComponent(sp_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12)
                     .addComponent(tf_vocacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rb_masculino))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rb_femenino)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cb_titulo)
                     .addComponent(cb_infectado))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(bt_crearPersona)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
-        jd_crearPersona.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        jd_crearPersona.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -214,12 +333,8 @@ public class Corona extends javax.swing.JFrame {
 
         jm_agregar.setText("Crear");
 
-        jmi_cPersona.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        jmi_cPersona.setText("Crear país");
-        jm_agregar.add(jmi_cPersona);
-
-        jmi_cPais.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
-        jmi_cPais.setText("Crear persona");
+        jmi_cPais.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        jmi_cPais.setText("Crear país");
         jmi_cPais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmi_cPaisActionPerformed(evt);
@@ -227,10 +342,19 @@ public class Corona extends javax.swing.JFrame {
         });
         jm_agregar.add(jmi_cPais);
 
+        jmi_cPersona.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_MASK));
+        jmi_cPersona.setText("Crear persona");
+        jmi_cPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_cPersonaActionPerformed(evt);
+            }
+        });
+        jm_agregar.add(jmi_cPersona);
+
         jm_admin.add(jm_agregar);
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Agregar a un país");
+        jMenuItem1.setText("Agregar persona a un país");
         jm_admin.add(jMenuItem1);
 
         jMenuBar1.add(jm_admin);
@@ -261,15 +385,49 @@ public class Corona extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jmi_cPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_cPaisActionPerformed
+    private void jmi_cPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_cPersonaActionPerformed
         crearPersona();
-    }//GEN-LAST:event_jmi_cPaisActionPerformed
+    }//GEN-LAST:event_jmi_cPersonaActionPerformed
 
     private void jt_paisesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_paisesMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jt_paisesMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bt_crearPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crearPaisActionPerformed
+        String nombrePais;
+        String himnoNacional;
+        Date fechaFundacion;
+        Color colorBandera;
+        
+        try {
+            
+            nombrePais = tf_nombrePais.getText();
+            himnoNacional = tf_himno.getText();
+            fechaFundacion = jdc_fundacion.getDate();
+            colorBandera = bt_colorBandera.getBackground();
+            
+            if(nombrePais.equals("")
+                    || himnoNacional.equals("")){
+                
+                throw new Exception("No se ha ingresado uno o más campos.");
+            }
+            
+            Pais p = new Pais(nombrePais, fechaFundacion, himnoNacional, colorBandera);
+            
+            paises.add(p);
+            
+            tf_nombrePais.setText("");
+            tf_himno.setText("");
+            bt_colorBandera.setBackground(Color.red);
+            jdc_fundacion.setDate(new Date());
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "HA ocurrido un error al crear una persona.", "Eror", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_bt_crearPaisActionPerformed
+
+    private void bt_crearPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_crearPersonaActionPerformed
         String nacionalidad;
         String nombrePersona;
         String apellido;
@@ -284,11 +442,11 @@ public class Corona extends javax.swing.JFrame {
             
             
             nacionalidad = tf_nacionalidad.getText();
-            nombrePersona = tf_nombrePersona.getText();
+            nombrePersona = tf_nombrePais.getText();
             apellido = tf_apellido.getText();
             edad = Integer.parseInt(sp_edad.getValue().toString());
             genero = (rb_masculino.isSelected()) ? "Masculino" : "Femenino" ;
-            vocacion = tf_vocacion.getText();
+            vocacion = tf_himno.getText();
             tieneTitulo = cb_titulo.isSelected();
             infectadoCorona = cb_infectado.isSelected();
             
@@ -297,7 +455,7 @@ public class Corona extends javax.swing.JFrame {
                     || apellido.equals("")
                     || vocacion.equals("")){
                 
-                throw new Exception("No se ha ingredado uno o más campos.");
+                throw new Exception("No se ha ingresado uno o más campos.");
                 
             }
             
@@ -314,11 +472,11 @@ public class Corona extends javax.swing.JFrame {
             }
             
             tf_nacionalidad.setText("");
-            tf_nombrePersona.setText("");
+            tf_nombrePais.setText("");
             tf_apellido.setText("");
             sp_edad.setValue(20);
             rb_masculino.setSelected(true);
-            tf_vocacion.setText("");
+            tf_himno.setText("");
             cb_titulo.setSelected(false);
             cb_infectado.setSelected(false);
             
@@ -326,15 +484,32 @@ public class Corona extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "HA ocurrido un error al crear una persona.", "Eror", JOptionPane.ERROR_MESSAGE);
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bt_crearPersonaActionPerformed
+
+    private void bt_colorBanderaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_colorBanderaActionPerformed
+        bt_colorBandera.setBackground(
+                JColorChooser.showDialog(this, "Color de la bandera", Color.red)
+        );
+    }//GEN-LAST:event_bt_colorBanderaActionPerformed
+
+    private void jmi_cPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_cPaisActionPerformed
+        crearPais();
+    }//GEN-LAST:event_jmi_cPaisActionPerformed
 
     private void crearPersona(){
         jd_crearPersona.pack();
         jd_crearPersona.setModal(true);
-        jd_crearPersona.setModal(true);
         jd_crearPersona.setLocationRelativeTo(this);
         jd_crearPersona.setVisible(true);
     }
+    
+    private void crearPais(){
+        jd_crearPais.pack();
+        jd_crearPais.setModal(true);
+        jd_crearPais.setLocationRelativeTo(this);
+        jd_crearPais.setVisible(true);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -372,22 +547,32 @@ public class Corona extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bg_genero;
+    private javax.swing.JButton bt_colorBandera;
+    private javax.swing.JButton bt_crearPais;
+    private javax.swing.JButton bt_crearPersona;
     private javax.swing.JCheckBox cb_infectado;
     private javax.swing.JCheckBox cb_titulo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JDialog jd_crearPais;
     private javax.swing.JDialog jd_crearPersona;
+    private com.toedter.calendar.JDateChooser jdc_fundacion;
     private javax.swing.JMenu jm_admin;
     private javax.swing.JMenu jm_agregar;
     private javax.swing.JMenuItem jmi_cPais;
@@ -398,7 +583,9 @@ public class Corona extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb_masculino;
     private javax.swing.JSpinner sp_edad;
     private javax.swing.JTextField tf_apellido;
+    private javax.swing.JTextField tf_himno;
     private javax.swing.JTextField tf_nacionalidad;
+    private javax.swing.JTextField tf_nombrePais;
     private javax.swing.JTextField tf_nombrePersona;
     private javax.swing.JTextField tf_vocacion;
     // End of variables declaration//GEN-END:variables
