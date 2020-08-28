@@ -3,9 +3,11 @@ package lab5;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
-import javafx.scene.chart.PieChart;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 public class Corona extends javax.swing.JFrame {
 
@@ -63,18 +65,29 @@ public class Corona extends javax.swing.JFrame {
         rb_femenino = new javax.swing.JRadioButton();
         cb_titulo = new javax.swing.JCheckBox();
         cb_infectado = new javax.swing.JCheckBox();
+        jd_agregar = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        cb_personas = new javax.swing.JComboBox<>();
+        rb_hombres = new javax.swing.JRadioButton();
+        rb_mujeres = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        cb_paises = new javax.swing.JComboBox<>();
+        bt_agregar = new javax.swing.JButton();
+        bg_sexo = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_paises = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_infectados = new javax.swing.JTree();
+        bt_filtrar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jm_admin = new javax.swing.JMenu();
         jm_agregar = new javax.swing.JMenu();
         jmi_cPais = new javax.swing.JMenuItem();
         jmi_cPersona = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmi_add = new javax.swing.JMenuItem();
 
-        jd_crearPais.setTitle("Crear Persona");
+        jd_crearPais.setTitle("Crear País");
         jd_crearPais.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -314,6 +327,98 @@ public class Corona extends javax.swing.JFrame {
 
         jd_crearPersona.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
+        jd_agregar.setTitle("Agregar");
+
+        jPanel5.setBackground(new java.awt.Color(255, 102, 102));
+
+        rb_hombres.setBackground(new java.awt.Color(255, 102, 102));
+        bg_sexo.add(rb_hombres);
+        rb_hombres.setSelected(true);
+        rb_hombres.setText("Hombres");
+
+        rb_mujeres.setBackground(new java.awt.Color(255, 102, 102));
+        bg_sexo.add(rb_mujeres);
+        rb_mujeres.setText("Mujeres");
+        rb_mujeres.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                rb_mujeresStateChanged(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel4.setText("Agregar");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 255, 255));
+        jLabel5.setText("al país:");
+
+        bt_agregar.setBackground(new java.awt.Color(0, 0, 0));
+        bt_agregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bt_agregar.setForeground(new java.awt.Color(255, 255, 204));
+        bt_agregar.setText("Agregar");
+        bt_agregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bt_agregar.setBorderPainted(false);
+        bt_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_agregarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(cb_personas, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(rb_hombres)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_mujeres, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cb_paises, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bt_agregar, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))))
+                .addContainerGap(99, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(cb_personas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(rb_hombres)
+                    .addComponent(rb_mujeres))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(cb_paises, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bt_agregar)
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jd_agregarLayout = new javax.swing.GroupLayout(jd_agregar.getContentPane());
+        jd_agregar.getContentPane().setLayout(jd_agregarLayout);
+        jd_agregarLayout.setHorizontalGroup(
+            jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jd_agregarLayout.setVerticalGroup(
+            jd_agregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Países");
@@ -328,6 +433,8 @@ public class Corona extends javax.swing.JFrame {
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Países");
         jt_infectados.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane2.setViewportView(jt_infectados);
+
+        bt_filtrar.setText("Infectados");
 
         jm_admin.setText("Administración");
 
@@ -353,9 +460,14 @@ public class Corona extends javax.swing.JFrame {
 
         jm_admin.add(jm_agregar);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Agregar persona a un país");
-        jm_admin.add(jMenuItem1);
+        jmi_add.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_add.setText("Agregar persona a un país");
+        jmi_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_addActionPerformed(evt);
+            }
+        });
+        jm_admin.add(jmi_add);
 
         jMenuBar1.add(jm_admin);
 
@@ -368,7 +480,9 @@ public class Corona extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bt_filtrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -380,6 +494,10 @@ public class Corona extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addComponent(bt_filtrar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -422,7 +540,7 @@ public class Corona extends javax.swing.JFrame {
             jdc_fundacion.setDate(new Date());
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "HA ocurrido un error al crear una persona.", "Eror", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al crear una persona.", "Eror", JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_bt_crearPaisActionPerformed
@@ -442,11 +560,11 @@ public class Corona extends javax.swing.JFrame {
             
             
             nacionalidad = tf_nacionalidad.getText();
-            nombrePersona = tf_nombrePais.getText();
+            nombrePersona = tf_nombrePersona.getText();
             apellido = tf_apellido.getText();
             edad = Integer.parseInt(sp_edad.getValue().toString());
             genero = (rb_masculino.isSelected()) ? "Masculino" : "Femenino" ;
-            vocacion = tf_himno.getText();
+            vocacion = tf_vocacion.getText();
             tieneTitulo = cb_titulo.isSelected();
             infectadoCorona = cb_infectado.isSelected();
             
@@ -472,16 +590,16 @@ public class Corona extends javax.swing.JFrame {
             }
             
             tf_nacionalidad.setText("");
-            tf_nombrePais.setText("");
+            tf_nombrePersona.setText("");
             tf_apellido.setText("");
             sp_edad.setValue(20);
             rb_masculino.setSelected(true);
-            tf_himno.setText("");
+            tf_vocacion.setText("");
             cb_titulo.setSelected(false);
             cb_infectado.setSelected(false);
             
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "HA ocurrido un error al crear una persona.", "Eror", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al crear una persona.", "Eror", JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_bt_crearPersonaActionPerformed
@@ -496,6 +614,103 @@ public class Corona extends javax.swing.JFrame {
         crearPais();
     }//GEN-LAST:event_jmi_cPaisActionPerformed
 
+    private void jmi_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_addActionPerformed
+        if(paises.size()==0){
+            JOptionPane.showMessageDialog(this, "No hay países a los que agregar una persona.", "Falta de requisitos", JOptionPane.ERROR_MESSAGE);
+        } else if((hombres.size() + mujeres.size() ==0)){
+            JOptionPane.showMessageDialog(this, "No hay personas a los que agregar un país.", "Falta de requisitos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            
+            agregarPersona();
+            
+        }
+    }//GEN-LAST:event_jmi_addActionPerformed
+
+    private void rb_mujeresStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rb_mujeresStateChanged
+        if(rb_mujeres.isSelected()){
+            
+            DefaultComboBoxModel model = (DefaultComboBoxModel) cb_personas.getModel();
+            model.removeAllElements();
+            for (Persona mujer : mujeres) {
+                model.addElement(mujer);
+            }
+            cb_personas.setModel(model);
+            
+        } else {
+            
+            DefaultComboBoxModel model = (DefaultComboBoxModel) cb_personas.getModel();
+            model.removeAllElements();
+            for (Persona hombre : hombres) {
+                model.addElement(hombre);
+            }
+            cb_personas.setModel(model);
+            
+        }
+    }//GEN-LAST:event_rb_mujeresStateChanged
+
+    private void bt_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_agregarActionPerformed
+        
+        try {
+            
+            boolean flag = true;
+            
+            Persona p = (Persona) cb_personas.getSelectedItem();
+            Pais c = (Pais) cb_paises.getSelectedItem();
+            
+            DefaultTreeModel t = (DefaultTreeModel) jt_paises.getModel();
+            DefaultMutableTreeNode root = (DefaultMutableTreeNode) t.getRoot();
+            
+            for(int i=0; i<root.getChildCount(); i++){
+                if ( ((DefaultMutableTreeNode)root.getChildAt(i)).getUserObject().equals(c) ) {
+                    flag = false;
+                    
+                    int sexo = (p.getGenero().equalsIgnoreCase("Masculino")) ? 0 : 1;
+                    
+                    ((DefaultMutableTreeNode)
+                            ((DefaultMutableTreeNode)root.getChildAt(i))
+                                    .getChildAt(sexo)).add(
+                                            new DefaultMutableTreeNode(
+                                                    p
+                                            )
+                                    );
+                    
+                    break;
+                }//FIn if
+            }
+            
+            if (flag) {
+                
+                DefaultMutableTreeNode pais = new DefaultMutableTreeNode(c);
+                pais.add( new DefaultMutableTreeNode("Hombres") );
+                pais.add( new DefaultMutableTreeNode("Mujeres") );
+                
+                int sexo = (p.getGenero().equalsIgnoreCase("Masculino")) ? 0 : 1;
+                
+                ((DefaultMutableTreeNode)pais.getChildAt(sexo))
+                        .add(
+                                new DefaultMutableTreeNode(
+                                        p
+                                )
+                        );
+                root.add(pais);
+            }
+            
+            DefaultComboBoxModel model = (DefaultComboBoxModel) cb_personas.getModel();
+            model.removeElement(p);
+            cb_personas.setModel(model);
+            
+            if (p.getGenero().equalsIgnoreCase("Masculino")){
+                hombres.remove(p);
+            } else {
+                mujeres.remove(p);
+            }
+            
+            t.reload();
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_bt_agregarActionPerformed
+
     private void crearPersona(){
         jd_crearPersona.pack();
         jd_crearPersona.setModal(true);
@@ -508,6 +723,31 @@ public class Corona extends javax.swing.JFrame {
         jd_crearPais.setModal(true);
         jd_crearPais.setLocationRelativeTo(this);
         jd_crearPais.setVisible(true);
+    }
+    
+    private void agregarPersona(){
+        
+        rb_hombres.setSelected(true);
+        
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cb_personas.getModel();
+        model.removeAllElements();
+        for (Persona hombre : hombres) {
+            model.addElement(hombre);
+        }
+        cb_personas.setModel(model);
+        
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_paises.getModel();
+        modelo.removeAllElements();
+        for (Pais pais : paises) {
+            modelo.addElement(pais);
+        }
+        cb_paises.setModel(modelo);
+        
+        jd_agregar.pack();
+        jd_agregar.setModal(true);
+        jd_agregar.setLocationRelativeTo(this);
+        jd_agregar.setVisible(true);
+        
     }
     
     /**
@@ -547,10 +787,15 @@ public class Corona extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bg_genero;
+    private javax.swing.ButtonGroup bg_sexo;
+    private javax.swing.JButton bt_agregar;
     private javax.swing.JButton bt_colorBandera;
     private javax.swing.JButton bt_crearPais;
     private javax.swing.JButton bt_crearPersona;
+    private javax.swing.JButton bt_filtrar;
     private javax.swing.JCheckBox cb_infectado;
+    private javax.swing.JComboBox<String> cb_paises;
+    private javax.swing.JComboBox<String> cb_personas;
     private javax.swing.JCheckBox cb_titulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -558,29 +803,35 @@ public class Corona extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_crearPais;
     private javax.swing.JDialog jd_crearPersona;
     private com.toedter.calendar.JDateChooser jdc_fundacion;
     private javax.swing.JMenu jm_admin;
     private javax.swing.JMenu jm_agregar;
+    private javax.swing.JMenuItem jmi_add;
     private javax.swing.JMenuItem jmi_cPais;
     private javax.swing.JMenuItem jmi_cPersona;
     private javax.swing.JTree jt_infectados;
     private javax.swing.JTree jt_paises;
     private javax.swing.JRadioButton rb_femenino;
+    private javax.swing.JRadioButton rb_hombres;
     private javax.swing.JRadioButton rb_masculino;
+    private javax.swing.JRadioButton rb_mujeres;
     private javax.swing.JSpinner sp_edad;
     private javax.swing.JTextField tf_apellido;
     private javax.swing.JTextField tf_himno;
