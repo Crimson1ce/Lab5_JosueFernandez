@@ -24,6 +24,7 @@ public class Corona extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         bt_modificarPersona.setVisible(false);
+        bt_modificarPais.setVisible(false);
     }
 
     /**
