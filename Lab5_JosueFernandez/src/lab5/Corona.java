@@ -526,6 +526,11 @@ public class Corona extends javax.swing.JFrame {
         pm_pais1.add(jmi_eliminarpais1);
 
         jmi_modificarpais1.setText("Modificar pais");
+        jmi_modificarpais1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarpais1ActionPerformed(evt);
+            }
+        });
         pm_pais1.add(jmi_modificarpais1);
 
         jmi_agregarPersona1.setText("Agregar persona");
@@ -1239,6 +1244,12 @@ public class Corona extends javax.swing.JFrame {
         bt_crearPais.setVisible(false);
         crearPais();
     }//GEN-LAST:event_jmi_modificarpaisActionPerformed
+
+    private void jmi_modificarpais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarpais1ActionPerformed
+        bt_modificarPais.setVisible(true);
+        bt_crearPais.setVisible(false);
+        crearPais();
+    }//GEN-LAST:event_jmi_modificarpais1ActionPerformed
 
     private void crearPersona(){
         jd_crearPersona.pack();
