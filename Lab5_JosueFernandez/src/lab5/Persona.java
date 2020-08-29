@@ -80,7 +80,7 @@ public class Persona {
         this.vocacion = vocacion;
     }
 
-    public boolean isTieneTitulo() {
+    public boolean tieneTitulo() {
         return tieneTitulo;
     }
 

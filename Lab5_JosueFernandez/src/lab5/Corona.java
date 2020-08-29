@@ -86,6 +86,14 @@ public class Corona extends javax.swing.JFrame {
         jmi_eliminarpersona = new javax.swing.JMenuItem();
         jmi_modificarpersona = new javax.swing.JMenuItem();
         jmi_expulsar = new javax.swing.JMenuItem();
+        pm_pais1 = new javax.swing.JPopupMenu();
+        jmi_eliminarpais1 = new javax.swing.JMenuItem();
+        jmi_modificarpais1 = new javax.swing.JMenuItem();
+        jmi_agregarPersona1 = new javax.swing.JMenuItem();
+        pm_persona1 = new javax.swing.JPopupMenu();
+        jmi_eliminarpersona1 = new javax.swing.JMenuItem();
+        jmi_modificarpersona1 = new javax.swing.JMenuItem();
+        jmi_expulsar1 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_paises = new javax.swing.JTree();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -151,52 +159,55 @@ public class Corona extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tf_nombrePais, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tf_himno, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(62, 62, 62)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jdc_fundacion, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                            .addComponent(bt_colorBandera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(bt_crearPais, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                        .addComponent(tf_nombrePais, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tf_himno, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jdc_fundacion, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                    .addComponent(bt_colorBandera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bt_crearPais, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(198, 198, 198))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(tf_nombrePais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addComponent(jdc_fundacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(tf_himno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(bt_colorBandera, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                            .addComponent(tf_nombrePais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(tf_himno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jdc_fundacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(bt_colorBandera, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(43, 43, 43)
                 .addComponent(bt_crearPais)
-                .addGap(45, 45, 45))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         jd_crearPais.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 210));
@@ -480,7 +491,55 @@ public class Corona extends javax.swing.JFrame {
         pm_persona.add(jmi_modificarpersona);
 
         jmi_expulsar.setText("Expulsar del país");
+        jmi_expulsar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_expulsarActionPerformed(evt);
+            }
+        });
         pm_persona.add(jmi_expulsar);
+
+        jmi_eliminarpais1.setText("Eliminar pais");
+        jmi_eliminarpais1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarpais1ActionPerformed(evt);
+            }
+        });
+        pm_pais1.add(jmi_eliminarpais1);
+
+        jmi_modificarpais1.setText("Modificar pais");
+        pm_pais1.add(jmi_modificarpais1);
+
+        jmi_agregarPersona1.setText("Agregar persona");
+        jmi_agregarPersona1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_agregarPersona1ActionPerformed(evt);
+            }
+        });
+        pm_pais1.add(jmi_agregarPersona1);
+
+        jmi_eliminarpersona1.setText("Eliminar persona");
+        jmi_eliminarpersona1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarpersona1ActionPerformed(evt);
+            }
+        });
+        pm_persona1.add(jmi_eliminarpersona1);
+
+        jmi_modificarpersona1.setText("Modificar persona");
+        jmi_modificarpersona1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarpersona1ActionPerformed(evt);
+            }
+        });
+        pm_persona1.add(jmi_modificarpersona1);
+
+        jmi_expulsar1.setText("Expulsar del país");
+        jmi_expulsar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_expulsar1ActionPerformed(evt);
+            }
+        });
+        pm_persona1.add(jmi_expulsar1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -495,9 +554,19 @@ public class Corona extends javax.swing.JFrame {
 
         treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Países");
         jt_infectados.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_infectados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_infectadosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jt_infectados);
 
         bt_filtrar.setText("Infectados");
+        bt_filtrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_filtrarActionPerformed(evt);
+            }
+        });
 
         jm_admin.setText("Administración");
 
@@ -542,11 +611,11 @@ public class Corona extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bt_filtrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bt_filtrar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                 .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
@@ -558,7 +627,7 @@ public class Corona extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(121, 121, 121)
+                .addGap(123, 123, 123)
                 .addComponent(bt_filtrar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -710,23 +779,26 @@ public class Corona extends javax.swing.JFrame {
     private void rb_mujeresStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rb_mujeresStateChanged
         if(rb_mujeres.isSelected()){
             
-            DefaultComboBoxModel model = (DefaultComboBoxModel) cb_personas.getModel();
-            model.removeAllElements();
-            for (Persona mujer : mujeres) {
-                model.addElement(mujer);
-            }
+            DefaultComboBoxModel model = new DefaultComboBoxModel(mujeres.toArray());//(DefaultComboBoxModel) cb_personas.getModel();
+            //model.removeAllElements();
+            //for (Persona mujer : mujeres) {
+                //model.addElement(mujer);
+            //}
             cb_personas.setModel(model);
+            //hombreSeleccionado = false;
             
-        } else {
+        } else {// && !hombreSeleccionado){
             
-            DefaultComboBoxModel model = (DefaultComboBoxModel) cb_personas.getModel();
-            model.removeAllElements();
-            for (Persona hombre : hombres) {
-                model.addElement(hombre);
-            }
+            DefaultComboBoxModel model = new DefaultComboBoxModel(hombres.toArray());//(DefaultComboBoxModel) cb_personas.getModel();
+            //model.removeAllElements();
+            //for (Persona hombre : hombres) {
+              //  model.addElement(hombre);
+            //}
             cb_personas.setModel(model);
+            //hombreSeleccionado = true;
             
         }
+        
     }//GEN-LAST:event_rb_mujeresStateChanged
 
     private void bt_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_agregarActionPerformed
@@ -790,6 +862,11 @@ public class Corona extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         
+        if(!cb_paises.isEnabled()){
+            jd_agregar.setVisible(false);
+            cb_paises.setEnabled(true);
+        }
+        
     }//GEN-LAST:event_bt_agregarActionPerformed
 
     private void jmi_eliminarpaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarpaisActionPerformed
@@ -800,6 +877,8 @@ public class Corona extends javax.swing.JFrame {
             m.removeNodeFromParent(nodo_seleccionado);
             m.reload();
         }
+        
+        paises.remove(pais_seleccionado);
         
         
     }//GEN-LAST:event_jmi_eliminarpaisActionPerformed
@@ -817,6 +896,10 @@ public class Corona extends javax.swing.JFrame {
 
     private void jmi_agregarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarPersonaActionPerformed
         
+        cb_paises.setSelectedItem(pais_seleccionado);
+        cb_paises.setEnabled(false);
+        agregarPersona();
+        
     }//GEN-LAST:event_jmi_agregarPersonaActionPerformed
 
     private void bt_modificarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificarPersonaActionPerformed
@@ -831,8 +914,6 @@ public class Corona extends javax.swing.JFrame {
         boolean infectadoCorona;
         
         try {
-            
-            
             
             nacionalidad = tf_nacionalidad.getText();
             nombrePersona = tf_nombrePersona.getText();
@@ -877,14 +958,221 @@ public class Corona extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ha ocurrido un error al crear una persona.", "Eror", JOptionPane.ERROR_MESSAGE);
         }
         
+        jd_crearPersona.setVisible(false);
+        bt_crearPersona.setVisible(true);
+        bt_modificarPersona.setVisible(false);
+        rb_femenino.setEnabled(true);
+        rb_masculino.setEnabled(true);
+        
     }//GEN-LAST:event_bt_modificarPersonaActionPerformed
 
     private void jmi_modificarpersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarpersonaActionPerformed
         bt_crearPersona.setVisible(false);
         bt_modificarPersona.setVisible(true);
+        rb_femenino.setEnabled(false);
+        rb_masculino.setEnabled(false);
+        
+        tf_nacionalidad.setText(persona_seleccionada.getNacionalidad());
+        tf_nombrePersona.setText(persona_seleccionada.getNombrePersona());
+        tf_apellido.setText(persona_seleccionada.getApellido());
+        sp_edad.setValue(persona_seleccionada.getEdad());
+        
+        if(persona_seleccionada.getGenero().equalsIgnoreCase("Masculino")){
+            rb_masculino.setSelected(true);
+        } else {
+            rb_femenino.setSelected(true);
+        }
+        
+        tf_vocacion.setText(persona_seleccionada.getVocacion());
+        
+        if(persona_seleccionada.tieneTitulo()){
+            cb_titulo.setSelected(true);
+        } else {
+            cb_titulo.setSelected(false);
+        }
+        
+        if(persona_seleccionada.isInfectadoCorona()){
+            cb_infectado.setSelected(true);
+        } else {
+            cb_infectado.setSelected(false);
+        }
+        
         crearPersona();
         
     }//GEN-LAST:event_jmi_modificarpersonaActionPerformed
+
+    private void jmi_expulsarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_expulsarActionPerformed
+        
+        if (persona_seleccionada.getGenero().equalsIgnoreCase("Masculino")) {
+            hombres.add(persona_seleccionada);
+        } else {
+            mujeres.add(persona_seleccionada);
+        }
+        
+        DefaultTreeModel model = (DefaultTreeModel) jt_paises.getModel();
+        model.removeNodeFromParent(nodo_seleccionado);
+        
+    }//GEN-LAST:event_jmi_expulsarActionPerformed
+
+    private void bt_filtrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_filtrarActionPerformed
+        
+        DefaultTreeModel p = (DefaultTreeModel) jt_paises.getModel();
+        jt_infectados.setModel(p);
+        
+        DefaultTreeModel m = (DefaultTreeModel) jt_infectados.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+        
+        //DefaultMutableTreeNode root = (DefaultMutableTreeNode) p.getRoot();
+        
+        for(int i=0; i<raiz.getChildCount(); i++){
+            
+            for(int j=0; j<2; j++){
+                
+                for (int k = 0; k < ((DefaultMutableTreeNode) raiz.getChildAt(i) ).getChildAt(j).getChildCount(); k++) {
+                    nodo_seleccionado = ((DefaultMutableTreeNode) ((DefaultMutableTreeNode) raiz.getChildAt(i) ).getChildAt(j).getChildAt(k));
+                    if( !((Persona)nodo_seleccionado.getUserObject()).isInfectadoCorona() )  {
+                        m.removeNodeFromParent(nodo_seleccionado); 
+                    }
+                }
+            }
+            
+        }
+        
+        /*
+        for (int i=0; i<root.getChildCount(); i++) {
+            DefaultMutableTreeNode nodoPais = (DefaultMutableTreeNode)root.getChildAt(i);
+            raiz.add(nodoPais);
+            
+            DefaultMutableTreeNode men = (DefaultMutableTreeNode)nodoPais.getChildAt(0);
+            DefaultMutableTreeNode women = (DefaultMutableTreeNode)nodoPais.getChildAt(1);
+            nodoPais.add(men);
+            nodoPais.add(women);
+            
+            for(int j=1; j< men.getChildCount(); j++){
+                Persona persona = ((Persona)((DefaultMutableTreeNode)men.getChildAt(j)).getUserObject());
+                if (persona.isInfectadoCorona()) {
+                    men.add(
+                            new DefaultMutableTreeNode(
+                                    persona
+                            )
+                    );
+                }
+            }
+            
+            for(int j=1; j< women.getChildCount(); j++){
+                Persona persona = ((Persona)((DefaultMutableTreeNode)women.getChildAt(j)).getUserObject());
+                if (persona.isInfectadoCorona()) {
+                    women.add(
+                            new DefaultMutableTreeNode(
+                                    persona
+                            )
+                    );
+                }
+            }
+            
+        }
+        */
+        m.reload();
+    }//GEN-LAST:event_bt_filtrarActionPerformed
+
+    private void jmi_eliminarpais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarpais1ActionPerformed
+        
+        int r = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar esta persona?", "Eliminar persona", JOptionPane.YES_NO_OPTION);
+        if(r==0){
+            DefaultTreeModel m = (DefaultTreeModel) jt_infectados.getModel();
+            m.removeNodeFromParent(nodo_seleccionado);
+            m.reload();
+        }
+        
+    }//GEN-LAST:event_jmi_eliminarpais1ActionPerformed
+
+    private void jmi_agregarPersona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarPersona1ActionPerformed
+        
+        cb_paises.setSelectedItem(pais_seleccionado);
+        cb_paises.setEnabled(false);
+        agregarPersona();
+        
+    }//GEN-LAST:event_jmi_agregarPersona1ActionPerformed
+
+    private void jmi_eliminarpersona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarpersona1ActionPerformed
+        
+        int r = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea eliminar esta persona?", "Eliminar persona", JOptionPane.YES_NO_OPTION);
+        if(r==0){
+            DefaultTreeModel m = (DefaultTreeModel) jt_infectados.getModel();
+            m.removeNodeFromParent(nodo_seleccionado);
+            m.reload();
+        }
+        
+    }//GEN-LAST:event_jmi_eliminarpersona1ActionPerformed
+
+    private void jmi_modificarpersona1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarpersona1ActionPerformed
+        bt_crearPersona.setVisible(false);
+        bt_modificarPersona.setVisible(true);
+        rb_femenino.setEnabled(false);
+        rb_masculino.setEnabled(false);
+        
+        tf_nacionalidad.setText(persona_seleccionada.getNacionalidad());
+        tf_nombrePersona.setText(persona_seleccionada.getNombrePersona());
+        tf_apellido.setText(persona_seleccionada.getApellido());
+        sp_edad.setValue(persona_seleccionada.getEdad());
+        
+        if(persona_seleccionada.getGenero().equalsIgnoreCase("Masculino")){
+            rb_masculino.setSelected(true);
+        } else {
+            rb_femenino.setSelected(true);
+        }
+        
+        tf_vocacion.setText(persona_seleccionada.getVocacion());
+        
+        if(persona_seleccionada.tieneTitulo()){
+            cb_titulo.setSelected(true);
+        } else {
+            cb_titulo.setSelected(false);
+        }
+        
+        if(persona_seleccionada.isInfectadoCorona()){
+            cb_infectado.setSelected(true);
+        } else {
+            cb_infectado.setSelected(false);
+        }
+        
+        crearPersona();
+    }//GEN-LAST:event_jmi_modificarpersona1ActionPerformed
+
+    private void jmi_expulsar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_expulsar1ActionPerformed
+        
+        if (persona_seleccionada.getGenero().equalsIgnoreCase("Masculino")) {
+            hombres.add(persona_seleccionada);
+        } else {
+            mujeres.add(persona_seleccionada);
+        }
+        
+        DefaultTreeModel model = (DefaultTreeModel) jt_infectados.getModel();
+        model.removeNodeFromParent(nodo_seleccionado);
+        
+    }//GEN-LAST:event_jmi_expulsar1ActionPerformed
+
+    private void jt_infectadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_infectadosMouseClicked
+         
+        if(evt.isMetaDown()){
+            
+            int row = jt_infectados.getClosestRowForLocation(evt.getX(), evt.getY());
+            jt_infectados.setSelectionRow(row);
+            
+            Object node = jt_infectados.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) node;
+            
+            if(nodo_seleccionado.getUserObject() instanceof Pais){
+                pais_seleccionado = (Pais) nodo_seleccionado.getUserObject();
+                
+                pm_pais.show(evt.getComponent(), evt.getX(), evt.getY());
+            } else if(nodo_seleccionado.getUserObject() instanceof Persona){
+                persona_seleccionada = (Persona) nodo_seleccionado.getUserObject();
+                
+                pm_persona.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jt_infectadosMouseClicked
 
     private void crearPersona(){
         jd_crearPersona.pack();
@@ -1001,17 +1289,25 @@ public class Corona extends javax.swing.JFrame {
     private javax.swing.JMenu jm_agregar;
     private javax.swing.JMenuItem jmi_add;
     private javax.swing.JMenuItem jmi_agregarPersona;
+    private javax.swing.JMenuItem jmi_agregarPersona1;
     private javax.swing.JMenuItem jmi_cPais;
     private javax.swing.JMenuItem jmi_cPersona;
     private javax.swing.JMenuItem jmi_eliminarpais;
+    private javax.swing.JMenuItem jmi_eliminarpais1;
     private javax.swing.JMenuItem jmi_eliminarpersona;
+    private javax.swing.JMenuItem jmi_eliminarpersona1;
     private javax.swing.JMenuItem jmi_expulsar;
+    private javax.swing.JMenuItem jmi_expulsar1;
     private javax.swing.JMenuItem jmi_modificarpais;
+    private javax.swing.JMenuItem jmi_modificarpais1;
     private javax.swing.JMenuItem jmi_modificarpersona;
+    private javax.swing.JMenuItem jmi_modificarpersona1;
     private javax.swing.JTree jt_infectados;
     private javax.swing.JTree jt_paises;
     private javax.swing.JPopupMenu pm_pais;
+    private javax.swing.JPopupMenu pm_pais1;
     private javax.swing.JPopupMenu pm_persona;
+    private javax.swing.JPopupMenu pm_persona1;
     private javax.swing.JRadioButton rb_femenino;
     private javax.swing.JRadioButton rb_hombres;
     private javax.swing.JRadioButton rb_masculino;
@@ -1028,5 +1324,7 @@ public class Corona extends javax.swing.JFrame {
     DefaultMutableTreeNode nodo_seleccionado;
     Persona persona_seleccionada;
     Pais pais_seleccionado;
+    
+    boolean hombreSeleccionado = true;
     
 }
