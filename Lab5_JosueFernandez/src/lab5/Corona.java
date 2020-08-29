@@ -47,6 +47,7 @@ public class Corona extends javax.swing.JFrame {
         jdc_fundacion = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         bt_colorBandera = new javax.swing.JButton();
+        bt_modificarPais = new javax.swing.JButton();
         bg_genero = new javax.swing.ButtonGroup();
         jd_crearPersona = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
@@ -127,7 +128,6 @@ public class Corona extends javax.swing.JFrame {
         bt_crearPais.setBackground(new java.awt.Color(51, 51, 255));
         bt_crearPais.setText("Crear País");
         bt_crearPais.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        bt_crearPais.setBorderPainted(false);
         bt_crearPais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_crearPaisActionPerformed(evt);
@@ -146,10 +146,20 @@ public class Corona extends javax.swing.JFrame {
         jLabel3.setText("Color de bandera:");
 
         bt_colorBandera.setBackground(new java.awt.Color(255, 0, 0));
+        bt_colorBandera.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bt_colorBandera.setBorderPainted(false);
         bt_colorBandera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_colorBanderaActionPerformed(evt);
+            }
+        });
+
+        bt_modificarPais.setBackground(new java.awt.Color(51, 51, 255));
+        bt_modificarPais.setText("Modificar País");
+        bt_modificarPais.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        bt_modificarPais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_modificarPaisActionPerformed(evt);
             }
         });
 
@@ -180,7 +190,9 @@ public class Corona extends javax.swing.JFrame {
                 .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bt_crearPais, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bt_modificarPais, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_crearPais, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(198, 198, 198))
         );
         jPanel1Layout.setVerticalGroup(
@@ -207,7 +219,9 @@ public class Corona extends javax.swing.JFrame {
                             .addComponent(bt_colorBandera, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(43, 43, 43)
                 .addComponent(bt_crearPais)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bt_modificarPais)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         jd_crearPais.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 210));
@@ -464,6 +478,11 @@ public class Corona extends javax.swing.JFrame {
         pm_pais.add(jmi_eliminarpais);
 
         jmi_modificarpais.setText("Modificar pais");
+        jmi_modificarpais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_modificarpaisActionPerformed(evt);
+            }
+        });
         pm_pais.add(jmi_modificarpais);
 
         jmi_agregarPersona.setText("Agregar persona");
@@ -1174,6 +1193,53 @@ public class Corona extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jt_infectadosMouseClicked
 
+    private void bt_modificarPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_modificarPaisActionPerformed
+        String nombrePais;
+        String himnoNacional;
+        Date fechaFundacion;
+        Color colorBandera;
+        
+        try {
+            
+            nombrePais = tf_nombrePais.getText();
+            himnoNacional = tf_himno.getText();
+            fechaFundacion = jdc_fundacion.getDate();
+            colorBandera = bt_colorBandera.getBackground();
+            
+            if(nombrePais.equals("")
+                    || himnoNacional.equals("")){
+                
+                throw new Exception("No se ha ingresado uno o más campos.");
+            }
+            
+            Pais p = new Pais(nombrePais, fechaFundacion, himnoNacional, colorBandera);
+            
+            pais_seleccionado.setColorBandera(colorBandera);
+            pais_seleccionado.setFechaFundacion(fechaFundacion);
+            pais_seleccionado.setHimnoNacional(himnoNacional);
+            pais_seleccionado.setNombrePais(nombrePais);
+            
+            tf_nombrePais.setText("");
+            tf_himno.setText("");
+            bt_colorBandera.setBackground(Color.red);
+            jdc_fundacion.setDate(new Date());
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ha ocurrido un error al crear una persona.", "Eror", JOptionPane.ERROR_MESSAGE);
+        }
+        jd_crearPais.setVisible(false);
+        bt_modificarPais.setVisible(false);
+        bt_crearPais.setVisible(true);
+        
+    }//GEN-LAST:event_bt_modificarPaisActionPerformed
+
+    private void jmi_modificarpaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_modificarpaisActionPerformed
+        bt_modificarPais.setVisible(true);
+        bt_crearPais.setVisible(false);
+        crearPais();
+    }//GEN-LAST:event_jmi_modificarpaisActionPerformed
+
     private void crearPersona(){
         jd_crearPersona.pack();
         jd_crearPersona.setModal(true);
@@ -1224,7 +1290,7 @@ public class Corona extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -1256,6 +1322,7 @@ public class Corona extends javax.swing.JFrame {
     private javax.swing.JButton bt_crearPais;
     private javax.swing.JButton bt_crearPersona;
     private javax.swing.JButton bt_filtrar;
+    private javax.swing.JButton bt_modificarPais;
     private javax.swing.JButton bt_modificarPersona;
     private javax.swing.JCheckBox cb_infectado;
     private javax.swing.JComboBox<String> cb_paises;
